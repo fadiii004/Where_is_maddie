@@ -102,13 +102,15 @@ h1{
 </head>
 
 <body>
-<audio controls autoplay loop>
+<audio autoplay loop muted id="bgmusic">
   <source src="MELANCHOLIA Music Box Sad, creepy song.mp3" type="audio/mpeg">
 </audio>
 <div class="container">
 
-<img src="cover.jpg.jpg" class="cover">
-
+<img src="cover.jpg" class="cover">
+<video width="600" controls autoplay loop muted>
+  <source src="trailer.mp4" type="video/mp4">
+</video>
 <h1>Where <span class="red">is Maddie?</span></h1>
 
 <p class="quote">
@@ -141,4 +143,11 @@ READ THE NOVEL
 </div>
 
 </body>
+ <script>
+window.addEventListener('click', function () {
+    const music = document.getElementById('bgmusic');
+    music.muted = false;
+    music.play();
+}, { once: true });
+</script>
 </html>
