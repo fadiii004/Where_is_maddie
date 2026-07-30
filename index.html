@@ -7,6 +7,54 @@
 <title>Where is Maddie?</title>
 
 <style>
+  .typing{
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid #b30000;
+    width:0;
+    margin:auto;
+    animation:typing 3s steps(16,end) forwards,
+              blink .7s infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:16ch;}
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+  #lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.95);
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border:3px solid #8B0000;
+    border-radius:10px;
+}
+
+#close{
+    position:absolute;
+    top:25px;
+    right:40px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+}
   #welcome-screen{
     transition: opacity 1s ease;
     position:fixed;
@@ -243,7 +291,7 @@ nav a:hover{
 
 <body>
 <div id="welcome-screen">
-    <h1>WHERE IS MADDIE?</h1>
+  <h1 class="typing">WHERE IS MADDIE?</h1>
     <p class="warning">
         ⚠️ This story contains mystery, suspense and disturbing scenes.
     </p>
@@ -335,6 +383,49 @@ enterBtn.addEventListener("click", () => {
     },1000);
 
 });
+</script>
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img">
+</div>
+  <script>
+
+const galleryImages=document.querySelectorAll(".gallery img");
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImg=document.getElementById("lightbox-img");
+
+const close=document.getElementById("close");
+
+galleryImages.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.style.display="flex";
+
+lightboxImg.src=img.src;
+
+});
+
+});
+
+close.onclick=()=>{
+
+lightbox.style.display="none";
+
+};
+
+lightbox.onclick=(e)=>{
+
+if(e.target===lightbox){
+
+lightbox.style.display="none";
+
+}
+
+};
+
 </script>
 </body>
 
