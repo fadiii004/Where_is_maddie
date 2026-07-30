@@ -8,6 +8,7 @@
 
 <style>
   #welcome-screen{
+    transition: opacity 1s ease;
     position:fixed;
     top:0;
     left:0;
@@ -22,7 +23,9 @@
     z-index:9999;
     color:white;
 }
-
+#welcome-screen.fade-out{
+    opacity:0;
+}
 #welcome-screen h1{
     font-size:42px;
     color:#b30000;
@@ -321,10 +324,17 @@ const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
 const music = document.getElementById("bgmusic");
 
-enterBtn.onclick = () => {
+enterBtn.addEventListener("click", () => {
+
     music.play();
-    welcome.style.display = "none";
-};
+
+    welcome.classList.add("fade-out");
+
+    setTimeout(() => {
+        welcome.style.display = "none";
+    },1000);
+
+});
 </script>
 </body>
 
