@@ -7,31 +7,54 @@
 <title>Where is Maddie?</title>
 
 <style>
-    #welcome-screen{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#000;
-  color:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  cursor:pointer;
-  z-index:9999;
+  #welcome-screen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:9999;
+    color:white;
 }
 
-#welcome-screen h2{
-  color:#b30000;
-  margin-bottom:15px;
+#welcome-screen h1{
+    font-size:42px;
+    color:#b30000;
+    letter-spacing:4px;
+    margin-bottom:20px;
 }
 
-#welcome-screen p{
-  font-size:18px;
+.warning{
+    color:#bdbdbd;
+    max-width:450px;
+    margin-bottom:40px;
+    font-size:17px;
+    line-height:1.7;
 }
+
+#enter-btn{
+    background:#8B0000;
+    color:white;
+    border:2px solid #b30000;
+    padding:15px 40px;
+    font-size:18px;
+    cursor:pointer;
+    border-radius:8px;
+    transition:.3s;
+}
+
+#enter-btn:hover{
+    background:#c00000;
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(255,0,0,.5);
+}
+
 *{
     margin:0;
     padding:0;
@@ -217,10 +240,14 @@ nav a:hover{
 
 <body>
 <div id="welcome-screen">
-  <h2>Welcome...</h2>
-  <p>Click anywhere to enter</p>
+    <h1>WHERE IS MADDIE?</h1>
+    <p class="warning">
+        ⚠️ This story contains mystery, suspense and disturbing scenes.
+    </p>
+
+    <button id="enter-btn">ENTER THE STORY</button>
 </div>
-<audio autoplay loop muted id="bgmusic">
+<audio autoplay loop  id="bgmusic">
   <source src="MELANCHOLIA Music Box Sad, creepy song.mp3" type="audio/mpeg">
 </audio>
     <nav>
@@ -290,21 +317,15 @@ nav a:hover{
 
 </div>
 <script>
+const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
 const music = document.getElementById("bgmusic");
 
-welcome.addEventListener("click", function () {
-    music.muted = false;
+enterBtn.onclick = () => {
     music.play();
     welcome.style.display = "none";
-});
+};
 </script>
 </body>
- <script>
-window.addEventListener('click', function () {
-    const music = document.getElementById('bgmusic');
-    music.muted = false;
-    music.play();
-}, { once: true });
-</script>
+
 </html>
