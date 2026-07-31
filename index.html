@@ -7,24 +7,30 @@
 <title>Where is Maddie?</title>
 
 <style>
-  .typing{
-    overflow:hidden;
-    white-space:nowrap;
-    border-right:3px solid #b30000;
-    width:0;
-    margin:auto;
-    animation:typing 3s steps(16,end) forwards,
-              blink .7s infinite;
+  .fog{
+    position:fixed;
+    top:0;
+    left:-50%;
+    width:200%;
+    height:100%;
+    pointer-events:none;
+    z-index:-1;
+    opacity:0.12;
+
+    background:
+    radial-gradient(circle at 20% 40%, rgba(255,255,255,.10), transparent 30%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.08), transparent 35%),
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.06), transparent 40%);
+
+    animation:fogMove 35s linear infinite;
 }
 
-@keyframes typing{
-    from{width:0;}
-    to{width:16ch;}
-}
-
-@keyframes blink{
-    50%{
-        border-color:transparent;
+@keyframes fogMove{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-25%);
     }
 }
   #lightbox{
@@ -290,8 +296,9 @@ nav a:hover{
 </head>
 
 <body>
+  <div class="fog"></div>
 <div id="welcome-screen">
-  <h1 class="typing">WHERE IS MADDIE?</h1>
+  <h1>WHERE IS MADDIE?</h1>
     <p class="warning">
         ⚠️ This story contains mystery, suspense and disturbing scenes.
     </p>
