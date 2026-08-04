@@ -412,18 +412,31 @@ nav a:hover{
 </div>
 
 </div>
+ <div id="novelPopup">
+
+    <span id="closeNovel">&times;</span>
+
+    <iframe
+        src="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/preview">
+    </iframe>
+
+</div>
 <script>
  const openNovel = document.getElementById("openNovel");
 const novelPopup = document.getElementById("novelPopup");
 const closeNovel = document.getElementById("closeNovel");
 
-openNovel.onclick = function(e){
-    e.preventDefault();
-    novelPopup.style.display = "block";
-}
+if (openNovel && novelPopup && closeNovel) {
 
-closeNovel.onclick = function(){
-    novelPopup.style.display = "none";
+    openNovel.onclick = function(e){
+        e.preventDefault();
+        novelPopup.style.display = "block";
+    };
+
+    closeNovel.onclick = function(){
+        novelPopup.style.display = "none";
+    };
+
 }
 const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
@@ -446,15 +459,6 @@ enterBtn.addEventListener("click", () => {
     <img id="lightbox-img">
 </div>
  
- <div id="novelPopup">
-
-    <span id="closeNovel">&times;</span>
-
-    <iframe
-        src="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/preview">
-    </iframe>
-
-</div>
   <script>
 
 const galleryImages=document.querySelectorAll(".gallery img");
