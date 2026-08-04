@@ -292,24 +292,31 @@ nav a:hover{
     font-size:18px;
     font-style:italic;
 }
-.pdf-box{
+#novelPopup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
     width:100%;
-    max-width:900px;
-    margin:40px auto;
-    border:2px solid #8B0000;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 0 25px rgba(255,0,0,.25);
+    height:100%;
+    background:rgba(0,0,0,.95);
+    z-index:99999;
 }
 
-.pdf-box iframe{
+#novelPopup iframe{
     width:100%;
-    height:900px;
+    height:100%;
     border:none;
 }
 
-#novel{
-    margin-top:80px;
+#closeNovel{
+    position:absolute;
+    top:20px;
+    right:30px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+    z-index:100000;
 }
 .footer{
     margin-top:80px;
@@ -383,26 +390,10 @@ nav a:hover{
    target="_blank">
    📖 Read the Novel
 </a>
-  <section id="novel">
-
-<h2>📖 READ THE NOVEL</h2>
-
-<p class="novel-text">
-Open the complete story directly inside the website.
-</p>
-
-<div class="pdf-box">
-
-<iframe
-src="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/preview"
-allow="autoplay"
-width="100%"
-height="900">
-</iframe>
-
-</div>
-
-</section>
+  <a href="#" class="btn" id="openNovel">
+    📖 Read the Novel
+</a>
+ 
 <h2 id="gallery">Gallery</h2>
 
 <div class="gallery">
@@ -422,6 +413,18 @@ height="900">
 
 </div>
 <script>
+ const openNovel = document.getElementById("openNovel");
+const novelPopup = document.getElementById("novelPopup");
+const closeNovel = document.getElementById("closeNovel");
+
+openNovel.onclick = function(e){
+    e.preventDefault();
+    novelPopup.style.display = "block";
+}
+
+closeNovel.onclick = function(){
+    novelPopup.style.display = "none";
+}
 const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
 const music = document.getElementById("bgmusic");
@@ -481,6 +484,15 @@ lightbox.style.display="none";
 };
 
 </script>
+ <div id="novelPopup">
+
+    <span id="closeNovel">&times;</span>
+
+    <iframe
+        src="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/preview">
+    </iframe>
+
+</div>
 </body>
 
 </html>
