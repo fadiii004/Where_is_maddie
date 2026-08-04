@@ -7,30 +7,32 @@
 <title>Where is Maddie?</title>
 
 <style>
-  .fog{
+ .fog{
     position:fixed;
     top:0;
-    left:-50%;
-    width:200%;
+    left:-30%;
+    width:160%;
     height:100%;
+
+    background:url("fog.png") repeat-x;
+    background-size:cover;
+
+    opacity:0.18;
+
     pointer-events:none;
-    z-index:-1;
-    opacity:0.12;
 
-    background:
-    radial-gradient(circle at 20% 40%, rgba(255,255,255,.10), transparent 30%),
-    radial-gradient(circle at 70% 60%, rgba(255,255,255,.08), transparent 35%),
-    radial-gradient(circle at 50% 20%, rgba(255,255,255,.06), transparent 40%);
+    animation:fogMove 40s linear infinite;
 
-    animation:fogMove 35s linear infinite;
+    z-index:0;
 }
 
 @keyframes fogMove{
-    0%{
+    from{
         transform:translateX(0);
     }
-    100%{
-        transform:translateX(-25%);
+
+    to{
+        transform:translateX(-20%);
     }
 }
   #lightbox{
@@ -136,6 +138,8 @@ body{
 }
 
 .container{
+  position:relative;
+  z-index:2;
     max-width:900px;
     margin:auto;
     padding:10px 20px;
@@ -193,6 +197,8 @@ h2{
   margin: 20px auto;
 }
 nav{
+ position:relative;
+z-index:2; 
   display:flex;
   justify-content:center;
   gap:15px;
