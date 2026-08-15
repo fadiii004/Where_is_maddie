@@ -385,15 +385,67 @@ nav a:hover{
 <p><b>Maddie</b> — The missing girl.</p>
 <p><b>The Doll</b> — The key to everything.</p>
 <p><b>The Man of the Doll</b> — The hidden puppeteer behind the nightmare.</p>
-<a href="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/view"
-   class="btn"
-   target="_blank">
-   📖 Read the Novel
+<a href="#" class="btn" id="openNovel">
+   📖 Read the Story
 </a>
-  <a href="#" class="btn" id="openNovel">
-    📖 Read the Novel
-</a>
- 
+<div id="codeBox" style="
+
+  display:none;
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:100%;
+
+  background:rgba(0,0,0,.95);
+
+  z-index:99999;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-direction:column;
+
+">
+   <h2 style="color:#b30000;">🔐 Enter Access Code</h2>
+ <input
+type=“password”
+id=“accessCode”
+placeholder=“Enter your code”
+style=”
+padding:14px;
+width:280px;
+max-width:80%;
+margin:15px;
+border-radius:8px;
+border:2px solid #8B0000;
+text-align:center;
+font-size:16px;
+“
+    <button id="checkCode" class="btn">
+    Open Story
+  </button>
+
+   <p id="wrongCode" style="display:none;color:#ff3333;">
+    ❌ Incorrect code
+  </p>
+ <span id="closeCode" style="
+position:absolute;
+top:20px;
+right:30px;
+color:white;
+font-size:40px;
+cursor:pointer;
+">×</span>
+
+</div>
+
 <h2 id="gallery">Gallery</h2>
 
 <div class="gallery">
@@ -412,19 +464,7 @@ nav a:hover{
 </div>
 
 </div>
- <div id="novelPopup">
-
-    <span id="closeNovel">&times;</span>
-
-    <iframe
-        src="https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/preview">
-    </iframe>
-
-</div>
-<script>
- const openNovel = document.getElementById("openNovel");
-const novelPopup = document.getElementById("novelPopup");
-const closeNovel = document.getElementById("closeNovel");
+ 
 
 if (openNovel && novelPopup && closeNovel) {
 
@@ -497,6 +537,42 @@ lightbox.style.display="none";
 
 };
 
+</script>
+ <script>
+const openNovel = document.getElementById("openNovel");
+const codeBox = document.getElementById("codeBox");
+const checkCode = document.getElementById("checkCode");
+const accessCode = document.getElementById("accessCode");
+const wrongCode = document.getElementById("wrongCode");
+const closeCode = document.getElementById("closeCode");
+
+const correctCode = "MADDIE2026";
+
+openNovel.onclick = function(e) {
+    e.preventDefault();
+    codeBox.style.display = "flex";
+    accessCode.focus();
+};
+
+checkCode.onclick = function() {
+
+    if (accessCode.value === correctCode) {
+
+        window.location.href =
+        "https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/view";
+
+    } else {
+
+            wrongCode.style.display = "block";
+        accessCode.value = "";
+    }
+};
+
+closeCode.onclick = function() {
+    codeBox.style.display = "none";
+    accessCode.value = "";
+    wrongCode.style.display = "none";
+};
 </script>
 </body>
 
