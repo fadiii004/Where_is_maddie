@@ -464,23 +464,11 @@ cursor:pointer;
 </div>
 
 </div>
- 
-
-if (openNovel && novelPopup && closeNovel) {
-
-    openNovel.onclick = function(e){
-        e.preventDefault();
-        novelPopup.style.display = "block";
-    };
-
-    closeNovel.onclick = function(){
-        novelPopup.style.display = "none";
-    };
-
-}
-const enterBtn = document.getElementById("enter-btn");
+ <script>
+ const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
 const music = document.getElementById("bgmusic");
+
 enterBtn.addEventListener("click", () => {
 
     welcome.classList.add("fade-out");
@@ -491,6 +479,9 @@ enterBtn.addEventListener("click", () => {
 
     music.play().catch(() => {});
 });
+
+
+
 
 </script>
   <div id="lightbox">
@@ -536,40 +527,8 @@ lightbox.style.display="none";
 
 };
 
-</script>
-<script>
-const openNovel = document.getElementById("openNovel");
-const codeBox = document.getElementById("codeBox");
-const checkCode = document.getElementById("checkCode");
-const accessCode = document.getElementById("accessCode");
-const wrongCode = document.getElementById("wrongCode");
-const closeCode = document.getElementById("closeCode");
-
-const correctCode = "MADDIE2026";
-
-openNovel.onclick = function(e) {
-    e.preventDefault();
-    codeBox.style.display = "flex";
-    accessCode.focus();
-};
-
-checkCode.onclick = function() {
-    if (accessCode.value === correctCode) {
-
-        window.location.href = "ضعي_هنا_رابط_الرواية";
-
-    } else {
-        wrongCode.style.display = "block";
-        accessCode.value = "";
-    }
-};
-
-closeCode.onclick = function() {
-    codeBox.style.display = "none";
-    accessCode.value = "";
-    wrongCode.style.display = "none";
-};
-</script>
+</script>{
+    
 </body>
 
 </html>
