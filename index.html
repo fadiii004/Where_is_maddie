@@ -537,7 +537,7 @@ lightbox.style.display="none";
 };
 
 </script>
- <script>
+<script>
 const openNovel = document.getElementById("openNovel");
 const codeBox = document.getElementById("codeBox");
 const checkCode = document.getElementById("checkCode");
@@ -554,15 +554,12 @@ openNovel.onclick = function(e) {
 };
 
 checkCode.onclick = function() {
-
     if (accessCode.value === correctCode) {
 
-        window.location.href =
-        "https://drive.google.com/file/d/15oHIFzy6DH090DkF1KJXzbsmmOkqfOe8/view";
+        window.location.href = "ضعي_هنا_رابط_الرواية";
 
     } else {
-
-            wrongCode.style.display = "block";
+        wrongCode.style.display = "block";
         accessCode.value = "";
     }
 };
