@@ -481,18 +481,17 @@ if (openNovel && novelPopup && closeNovel) {
 const enterBtn = document.getElementById("enter-btn");
 const welcome = document.getElementById("welcome-screen");
 const music = document.getElementById("bgmusic");
-
 enterBtn.addEventListener("click", () => {
-
-    music.play();
 
     welcome.classList.add("fade-out");
 
     setTimeout(() => {
         welcome.style.display = "none";
-    },1000);
+    }, 1000);
 
+    music.play().catch(() => {});
 });
+
 </script>
   <div id="lightbox">
     <span id="close">&times;</span>
